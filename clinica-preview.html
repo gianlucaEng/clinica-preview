@@ -15,50 +15,59 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
             color: #333;
         }
 
         /* Header */
         .header {
-            background-color: #1e8a8a;
+            background-color: #2a7b7d;
             color: white;
-            padding: 16px 24px;
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: none;
+            height: 64px;
         }
 
         .header-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .header-search {
             flex: 1;
-            margin: 0 40px;
+            margin: 0 32px;
             position: relative;
         }
 
         .header-search input {
             width: 100%;
-            padding: 10px 16px;
+            padding: 8px 16px;
             border: none;
             border-radius: 4px;
-            background-color: rgba(255,255,255,0.2);
+            background-color: rgba(255,255,255,0.25);
             color: white;
             font-size: 14px;
         }
 
         .header-search input::placeholder {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
         }
 
         .header-right {
             display: flex;
             gap: 20px;
             align-items: center;
+        }
+
+        .header-right .material-icons {
+            font-size: 20px;
+            cursor: pointer;
         }
 
         /* Main container */
@@ -70,34 +79,37 @@
         /* Sidebar */
         .sidebar {
             width: 280px;
-            background-color: white;
+            background-color: #f5f5f5;
             border-right: 1px solid #e0e0e0;
             overflow-y: auto;
+            padding-top: 0;
         }
 
         .sidebar-item {
-            padding: 16px 24px;
+            padding: 16px 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: #1e8a8a;
+            gap: 16px;
+            color: #2a7b7d;
             font-weight: 500;
+            font-size: 14px;
             border-left: 4px solid transparent;
             transition: background-color 0.2s;
         }
 
         .sidebar-item:hover {
-            background-color: #f5f5f5;
+            background-color: #eeeeee;
         }
 
         .sidebar-item.active {
-            background-color: #f0f8f8;
-            border-left-color: #1e8a8a;
+            background-color: #e8f4f5;
+            border-left-color: #2a7b7d;
         }
 
         .sidebar-item .material-icons {
             font-size: 24px;
+            flex-shrink: 0;
         }
 
         /* Content area */
@@ -105,73 +117,146 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            background-color: white;
+            background-color: #ffffff;
             overflow-y: auto;
         }
 
-        /* Patient info */
-        .patient-info {
-            background-color: white;
-            padding: 20px 24px;
+        /* Patient info section */
+        .patient-section {
+            background-color: #ffffff;
+            padding: 16px 24px;
             border-bottom: 1px solid #e0e0e0;
+        }
+
+        .patient-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            margin-bottom: 16px;
         }
 
         .patient-info-left {
             display: flex;
             gap: 16px;
+            align-items: flex-start;
         }
 
         .patient-avatar {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background-color: #1e8a8a;
+            background-color: #2a7b7d;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .patient-details {
+            display: flex;
+            flex-direction: column;
         }
 
         .patient-details h3 {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 4px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #000;
         }
 
         .patient-details p {
             font-size: 13px;
             color: #666;
-            margin: 2px 0;
+            margin: 1px 0;
         }
 
         .patient-info-right {
             text-align: right;
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
         }
 
         .patient-info-right p {
-            margin: 4px 0;
+            margin: 2px 0;
+        }
+
+        /* Toolbar with buttons and tabs */
+        .toolbar-section {
+            background-color: #ffffff;
+            padding: 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .toolbar-top {
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .toolbar-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .toolbar-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 400;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #333;
+        }
+
+        .btn:hover {
+            background-color: #f9f9f9;
+            border-color: #999;
+        }
+
+        .btn.primary {
+            background-color: #2a7b7d;
+            color: white;
+            border-color: #2a7b7d;
+        }
+
+        .btn.primary:hover {
+            background-color: #1e5f60;
+        }
+
+        .btn .material-icons {
+            font-size: 16px;
         }
 
         /* Tabs */
         .tabs-container {
-            background-color: white;
+            background-color: #ffffff;
             border-bottom: 1px solid #e0e0e0;
             padding: 0 24px;
             display: flex;
-            gap: 32px;
+            gap: 40px;
         }
 
         .tab {
-            padding: 16px 0;
+            padding: 12px 0;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: #666;
             border-bottom: 3px solid transparent;
@@ -180,56 +265,12 @@
         }
 
         .tab.active {
-            color: #1e8a8a;
-            border-bottom-color: #1e8a8a;
+            color: #333;
+            border-bottom-color: #2a7b7d;
         }
 
         .tab:hover {
-            color: #1e8a8a;
-        }
-
-        /* Toolbar */
-        .toolbar {
-            padding: 16px 24px;
-            background-color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .toolbar-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn {
-            padding: 8px 16px;
-            border: 1px solid #ccc;
-            background-color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn:hover {
-            background-color: #f5f5f5;
-            border-color: #999;
-        }
-
-        .btn.primary {
-            background-color: #1e8a8a;
-            color: white;
-            border-color: #1e8a8a;
-        }
-
-        .btn.primary:hover {
-            background-color: #166666;
+            color: #333;
         }
 
         /* Tab content */
@@ -244,33 +285,49 @@
             display: block;
         }
 
+        /* Results label */
+        .results-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
         /* Table */
         .results-table {
             width: 100%;
             border-collapse: collapse;
             background-color: white;
             border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
         }
 
         .results-table thead {
             background-color: #f5f5f5;
             font-weight: 600;
-            font-size: 13px;
-            color: #333;
+            font-size: 12px;
+            color: #666;
         }
 
         .results-table th {
-            padding: 12px 16px;
+            padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .results-table th:last-child {
+            border-right: none;
         }
 
         .results-table td {
-            padding: 12px 16px;
+            padding: 10px 12px;
             border-bottom: 1px solid #e0e0e0;
-            font-size: 13px;
+            border-right: 1px solid #e0e0e0;
+            font-size: 12px;
+        }
+
+        .results-table td:last-child {
+            border-right: none;
         }
 
         .results-table tbody tr:hover {
@@ -278,56 +335,57 @@
         }
 
         .checkbox {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             cursor: pointer;
-            accent-color: #1e8a8a;
+            accent-color: #2a7b7d;
         }
 
         /* Badge */
         .badge {
             display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
+            margin-left: 8px;
         }
 
         .badge.accepted {
-            background-color: #d4edda;
-            color: #155724;
+            background-color: #c8e6c9;
+            color: #2e7d32;
         }
 
         .badge.pending {
-            background-color: #fff3cd;
-            color: #856404;
+            background-color: #fff9c4;
+            color: #f57f17;
         }
 
         .badge.validated {
-            background-color: #d1ecf1;
-            color: #0c5460;
+            background-color: #b3e5fc;
+            color: #01579b;
         }
 
         /* Expansion Panel */
         .expansion-panel {
             border: 1px solid #e0e0e0;
-            border-radius: 4px;
             margin-bottom: 16px;
             background-color: white;
         }
 
         .expansion-header {
-            padding: 16px;
+            padding: 12px 16px;
             background-color: #f5f5f5;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 500;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: 13px;
             user-select: none;
             transition: background-color 0.2s;
+            color: #333;
         }
 
         .expansion-header:hover {
@@ -335,12 +393,12 @@
         }
 
         .expansion-header.open {
-            background-color: #e8f8f8;
+            background-color: #e8f4f5;
         }
 
         .expansion-header .material-icons {
             font-size: 20px;
-            color: #1e8a8a;
+            color: #2a7b7d;
             transition: transform 0.3s;
         }
 
@@ -350,7 +408,7 @@
 
         .expansion-content {
             display: none;
-            padding: 16px;
+            padding: 0;
             border-top: 1px solid #e0e0e0;
         }
 
@@ -358,16 +416,20 @@
             display: block;
         }
 
+        .expansion-content .results-table {
+            border: none;
+        }
+
         /* Highlight result */
         .result-highlight {
-            background-color: #fffacd;
+            background-color: #fffde7;
             font-weight: 600;
         }
 
         /* Status column */
         .status-cell {
-            color: #d9534f;
-            font-weight: 500;
+            color: #c62828;
+            font-weight: 600;
         }
 
         /* Responsive */
@@ -378,19 +440,9 @@
 
             .sidebar {
                 width: 100%;
-                max-height: 150px;
+                max-height: 100px;
                 overflow-x: auto;
                 display: flex;
-            }
-
-            .sidebar-item {
-                border-left: none;
-                border-bottom: 4px solid transparent;
-            }
-
-            .sidebar-item.active {
-                border-left: none;
-                border-bottom-color: #1e8a8a;
             }
         }
     </style>
@@ -398,15 +450,20 @@
 <body>
     <!-- Header -->
     <div class="header">
-        <span class="header-title">🔬 Laboratorio</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="material-icons" style="font-size: 20px;">menu</span>
+            <span class="material-icons" style="font-size: 20px;">bolt</span>
+            <span class="header-title">Laboratorio</span>
+        </div>
         <div class="header-search">
             <input type="text" placeholder="Cerca campioni o persone">
         </div>
         <div class="header-right">
+            <span class="material-icons">search</span>
             <span class="material-icons">info</span>
             <span class="material-icons">notifications</span>
             <span class="material-icons">help</span>
-            <div class="patient-avatar" style="width: 32px; height: 32px;">GE</div>
+            <div class="patient-avatar" style="width: 32px; height: 32px; margin: 0;">GE</div>
             <span class="material-icons">more_vert</span>
         </div>
     </div>
@@ -419,12 +476,12 @@
                 <span class="material-icons">person_search</span>
                 <span>Preanalítica</span>
             </div>
-            <div class="sidebar-item active">
-                <span class="material-icons">science</span>
+            <div class="sidebar-item">
+                <span class="material-icons">people</span>
                 <span>Laboratorio</span>
             </div>
-            <div class="sidebar-item">
-                <span class="material-icons">local_hospital</span>
+            <div class="sidebar-item active">
+                <span class="material-icons">description</span>
                 <span>Clinica</span>
             </div>
             <div class="sidebar-item">
@@ -440,59 +497,70 @@
         <!-- Content -->
         <div class="content">
             <!-- Patient info -->
-            <div class="patient-info">
-                <div class="patient-info-left">
-                    <div class="patient-avatar">BI</div>
-                    <div class="patient-details">
-                        <h3>BORTONE IVANA</h3>
-                        <p><strong>(ND) 19/06/1958 (68 anni)</strong></p>
-                        <p>ID Paziente: OLW0000000000055</p>
-                        <p>Reparto: C.P. Centrale 1</p>
-                        <p>Data Ricovero: —</p>
+            <div class="patient-section">
+                <div class="patient-header">
+                    <div class="patient-info-left">
+                        <div class="patient-avatar">BI</div>
+                        <div class="patient-details">
+                            <h3>BORTONE IVANA</h3>
+                            <p>(ND) 19/06/1958 (68 anni)</p>
+                            <p>ID Paziente: OLW0000000000055</p>
+                            <p>Reparto: C.P. Centrale 1</p>
+                            <p>Data Ricovero:</p>
+                        </div>
+                    </div>
+                    <div class="patient-info-right" style="margin-left: 40px;">
+                        <p><strong>Cod. Aux.:</strong> 201977000113</p>
+                        <p><strong>Richiesta:</strong> 2019000264</p>
+                        <p><strong>Data richiesta:</strong> 27/03/2019 16:09</p>
+                        <p><strong>Medico Rich.:</strong></p>
+                        <p><strong>Diuresi:</strong></p>
+                        <p><strong>Note:</strong></p>
                     </div>
                 </div>
-                <div class="patient-info-right">
-                    <p><strong>Cod. Aux.:</strong> 201977000113</p>
-                    <p><strong>Richiesta:</strong> 2019000264</p>
-                    <p><strong>Data richiesta:</strong> 27/03/2019 16:09</p>
-                    <p><strong>Medico Rich.:</strong> —</p>
-                    <p><strong>Diuresi:</strong> —</p>
-                    <p><strong>Note:</strong> —</p>
-                </div>
             </div>
 
-            <!-- Tabs -->
-            <div class="tabs-container">
-                <div class="tab active" onclick="switchTab('generale')">
-                    Generale
+            <!-- Toolbar and Tabs -->
+            <div class="toolbar-section">
+                <div class="toolbar-top">
+                    <span class="toolbar-label">Generale</span>
+                    <div class="toolbar-buttons">
+                        <button class="btn">
+                            <span class="material-icons">refresh</span>
+                            test
+                        </button>
+                        <button class="btn" style="background-color: #f0f0f0;">
+                            <span class="material-icons">close</span>
+                        </button>
+                        <button class="btn">
+                            <span class="material-icons">delete</span>
+                        </button>
+                        <button class="btn">Abilita il refresh automatico</button>
+                        <button class="btn primary">test</button>
+                        <button class="btn">qwerty</button>
+                        <button class="btn">
+                            <span class="material-icons">settings</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="tab" onclick="switchTab('chimica')">
-                    Chimica Clinica [1CHCL]
-                </div>
-            </div>
 
-            <!-- Toolbar -->
-            <div class="toolbar">
-                <span>Risultati</span>
-                <div class="toolbar-buttons">
-                    <button class="btn">
-                        <span class="material-icons" style="font-size: 16px;">refresh</span>
-                        Abilita il refresh automatico
-                    </button>
-                    <button class="btn primary">test</button>
-                    <button class="btn">qwerty</button>
-                    <button class="btn">
-                        <span class="material-icons" style="font-size: 16px;">settings</span>
-                    </button>
+                <div class="tabs-container">
+                    <div class="tab active" onclick="switchTab('generale', event)">
+                        Generale
+                    </div>
+                    <div class="tab" onclick="switchTab('chimica', event)">
+                        Chimica Clinica [1CHCL]
+                    </div>
                 </div>
             </div>
 
             <!-- Tab: Generale -->
             <div class="tab-content active" id="generale">
+                <div class="results-label">Risultati</div>
                 <table class="results-table">
                     <thead>
                         <tr>
-                            <th style="width: 40px;"><input type="checkbox" class="checkbox"></th>
+                            <th style="width: 30px;"><input type="checkbox" class="checkbox"></th>
                             <th>ANL. MNEM.</th>
                             <th>ESAMI</th>
                             <th>RISULTATI</th>
@@ -507,7 +575,7 @@
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>COL</td>
-                            <td><strong>Colesterolo totale [ COL - 00200 ]</strong></td>
+                            <td>Colesterolo totale [ COL - 00200 ]<span class="badge accepted">Accettata</span></td>
                             <td></td>
                             <td>TCol</td>
                             <td>T.Verde 6mL ...</td>
@@ -518,7 +586,7 @@
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>EMOLI</td>
-                            <td><strong>Indice di Emolisi [ EMOLI - 99901 ]</strong> <span class="badge pending">Eseguita e validata</span></td>
+                            <td>Indice di Emolisi [ EMOLI - 99901 ]<span class="badge pending">Eseguita e validata</span></td>
                             <td class="result-highlight">12</td>
                             <td>H</td>
                             <td>T.Verde 6mL ...</td>
@@ -529,7 +597,7 @@
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>LDL</td>
-                            <td><strong>Colesterolo LDL [ LDL - 00220 ]</strong></td>
+                            <td>Colesterolo LDL [ LDL - 00220 ]<span class="badge accepted">Accettata</span></td>
                             <td></td>
                             <td>LDL</td>
                             <td>T.Verde 6mL ...</td>
@@ -540,7 +608,7 @@
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>HDL</td>
-                            <td><strong>Colesterolo HDL [ HDL - 00210 ]</strong> <span class="badge validated">Eseguita da validare</span></td>
+                            <td>Colesterolo HDL [ HDL - 00210 ]<span class="badge validated">Eseguita da validare</span></td>
                             <td class="status-cell">+, rilevata</td>
                             <td>HDL</td>
                             <td>T.Verde 6mL ...</td>
@@ -551,7 +619,7 @@
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>LIPEM</td>
-                            <td><strong>Indice Lipemico [ LIPEM - 99903 ]</strong> <span class="badge validated">Eseguita da validare</span></td>
+                            <td>Indice Lipemico [ LIPEM - 99903 ]<span class="badge validated">Eseguita da validare</span></td>
                             <td class="status-cell">rilevata 23</td>
                             <td>L</td>
                             <td>T.Verde 6mL ...</td>
@@ -562,7 +630,7 @@
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>ITTER</td>
-                            <td><strong>Indice Itterico [ ITTER - 99902 ]</strong> <span class="badge validated">Eseguita e validata</span></td>
+                            <td>Indice Itterico [ ITTER - 99902 ]<span class="badge validated">Eseguita e validata</span></td>
                             <td>8</td>
                             <td>I</td>
                             <td>T.Verde 6mL ...</td>
@@ -573,7 +641,7 @@
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
                             <td>TRIGL</td>
-                            <td><strong>Trigliceridi [ TRIGL - 00230 ]</strong> <span class="badge validated">Eseguita e validata</span></td>
+                            <td>Trigliceridi [ TRIGL - 00230 ]<span class="badge validated">Eseguita e validata</span></td>
                             <td>8</td>
                             <td>Trig</td>
                             <td>T.Verde 6mL ...</td>
@@ -587,6 +655,8 @@
 
             <!-- Tab: Chimica Clinica with Expansion Panels -->
             <div class="tab-content" id="chimica">
+                <div class="results-label">Risultati</div>
+                
                 <!-- Expansion Panel 1: Chimica su Siero -->
                 <div class="expansion-panel">
                     <div class="expansion-header" onclick="toggleExpansion(this)">
@@ -594,10 +664,10 @@
                         <span class="material-icons">expand_more</span>
                     </div>
                     <div class="expansion-content">
-                        <table class="results-table" style="margin-bottom: 0;">
+                        <table class="results-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 40px;"><input type="checkbox" class="checkbox"></th>
+                                    <th style="width: 30px;"><input type="checkbox" class="checkbox"></th>
                                     <th>ANL. MNEM.</th>
                                     <th>ESAMI</th>
                                     <th>RISULTATI</th>
@@ -612,7 +682,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>COL</td>
-                                    <td><strong>Colesterolo totale [ COL - 00200 ]</strong> <span class="badge accepted">Accettata</span></td>
+                                    <td>Colesterolo totale [ COL - 00200 ]<span class="badge accepted">Accettata</span></td>
                                     <td></td>
                                     <td>TCol</td>
                                     <td>T.Verde 6mL ...</td>
@@ -623,7 +693,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>EMOLI</td>
-                                    <td><strong>Indice di Emolisi [ EMOLI - 99901 ]</strong> <span class="badge pending">Eseguita e validata</span></td>
+                                    <td>Indice di Emolisi [ EMOLI - 99901 ]<span class="badge pending">Eseguita e validata</span></td>
                                     <td class="result-highlight">12</td>
                                     <td>H</td>
                                     <td>T.Verde 6mL ...</td>
@@ -634,7 +704,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>LDL</td>
-                                    <td><strong>Colesterolo LDL [ LDL - 00220 ]</strong> <span class="badge accepted">Accettata</span></td>
+                                    <td>Colesterolo LDL [ LDL - 00220 ]<span class="badge accepted">Accettata</span></td>
                                     <td></td>
                                     <td>LDL</td>
                                     <td>T.Verde 6mL ...</td>
@@ -645,7 +715,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>HDL</td>
-                                    <td><strong>Colesterolo HDL [ HDL - 00210 ]</strong> <span class="badge validated">Eseguita da validare</span></td>
+                                    <td>Colesterolo HDL [ HDL - 00210 ]<span class="badge validated">Eseguita da validare</span></td>
                                     <td class="status-cell">+, rilevata</td>
                                     <td>HDL</td>
                                     <td>T.Verde 6mL ...</td>
@@ -656,7 +726,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>LIPEM</td>
-                                    <td><strong>Indice Lipemico [ LIPEM - 99903 ]</strong> <span class="badge validated">Eseguita da validare</span></td>
+                                    <td>Indice Lipemico [ LIPEM - 99903 ]<span class="badge validated">Eseguita da validare</span></td>
                                     <td class="status-cell">rilevata 23</td>
                                     <td>L</td>
                                     <td>T.Verde 6mL ...</td>
@@ -676,10 +746,10 @@
                         <span class="material-icons">expand_more</span>
                     </div>
                     <div class="expansion-content">
-                        <table class="results-table" style="margin-bottom: 0;">
+                        <table class="results-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 40px;"><input type="checkbox" class="checkbox"></th>
+                                    <th style="width: 30px;"><input type="checkbox" class="checkbox"></th>
                                     <th>ANL. MNEM.</th>
                                     <th>ESAMI</th>
                                     <th>RISULTATI</th>
@@ -694,7 +764,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>GLUC</td>
-                                    <td><strong>Glucosio nelle urine [ GLUC - 00150 ]</strong> <span class="badge accepted">Accettata</span></td>
+                                    <td>Glucosio nelle urine [ GLUC - 00150 ]<span class="badge accepted">Accettata</span></td>
                                     <td></td>
                                     <td>GLU</td>
                                     <td>Provetta 24h ...</td>
@@ -705,7 +775,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>PROT</td>
-                                    <td><strong>Proteine nelle urine [ PROT - 00160 ]</strong> <span class="badge pending">Eseguita e validata</span></td>
+                                    <td>Proteine nelle urine [ PROT - 00160 ]<span class="badge pending">Eseguita e validata</span></td>
                                     <td class="result-highlight">0.8</td>
                                     <td>PROT</td>
                                     <td>Provetta 24h ...</td>
@@ -716,7 +786,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>CHET</td>
-                                    <td><strong>Chetoni nelle urine [ CHET - 00170 ]</strong> <span class="badge accepted">Accettata</span></td>
+                                    <td>Chetoni nelle urine [ CHET - 00170 ]<span class="badge accepted">Accettata</span></td>
                                     <td></td>
                                     <td>KET</td>
                                     <td>Provetta 24h ...</td>
@@ -736,10 +806,10 @@
                         <span class="material-icons">expand_more</span>
                     </div>
                     <div class="expansion-content">
-                        <table class="results-table" style="margin-bottom: 0;">
+                        <table class="results-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 40px;"><input type="checkbox" class="checkbox"></th>
+                                    <th style="width: 30px;"><input type="checkbox" class="checkbox"></th>
                                     <th>ANL. MNEM.</th>
                                     <th>ESAMI</th>
                                     <th>RISULTATI</th>
@@ -754,7 +824,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>PT</td>
-                                    <td><strong>Protrombina [ PT - 00130 ]</strong> <span class="badge accepted">Accettata</span></td>
+                                    <td>Protrombina [ PT - 00130 ]<span class="badge accepted">Accettata</span></td>
                                     <td></td>
                                     <td>PT%</td>
                                     <td>Citrato 3.2% ...</td>
@@ -765,7 +835,7 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
                                     <td>APTT</td>
-                                    <td><strong>Tempo di tromboplastina [ APTT - 00140 ]</strong> <span class="badge validated">Eseguita da validare</span></td>
+                                    <td>Tempo di tromboplastina [ APTT - 00140 ]<span class="badge validated">Eseguita da validare</span></td>
                                     <td class="status-cell">32.5</td>
                                     <td>APTT</td>
                                     <td>Citrato 3.2% ...</td>
@@ -782,7 +852,7 @@
     </div>
 
     <script>
-        function switchTab(tabName) {
+        function switchTab(tabName, event) {
             // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.remove('active');
