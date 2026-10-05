@@ -367,6 +367,60 @@
             font-size: 16px;
         }
 
+        /* Toggle Material Design */
+        .mat-slide-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .mat-slide-toggle input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 36px;
+            height: 20px;
+            border-radius: 20px;
+            background-color: #bdbdbd;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s ease;
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mat-slide-toggle input::before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: white;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 
+                        0 1px 1px 0 rgba(0, 0, 0, 0.14), 
+                        0 1px 3px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .mat-slide-toggle input:checked {
+            background-color: #a7d5d5;
+        }
+
+        .mat-slide-toggle input:checked::before {
+            transform: translateX(16px);
+        }
+
+        .mat-slide-toggle input:focus-visible {
+            outline: 2px solid #2a7b7d;
+            outline-offset: 2px;
+        }
+
         /* Tabs */
         .tabs-container {
             background-color: #ffffff;
@@ -702,7 +756,10 @@
                         <button class="btn">
                             <span class="material-icons">delete</span>
                         </button>
-                        <button class="btn">Abilita il refresh automatico</button>
+                        <label class="mat-slide-toggle">
+                            <input type="checkbox" id="auto-refresh">
+                            <span>Abilita il refresh automatico</span>
+                        </label>
                         <button class="btn primary">test</button>
                         <button class="btn">qwerty</button>
                         <button class="btn">
@@ -1001,13 +1058,24 @@
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" class="checkbox"></td>
-                                    <td>APTT</td>
-                                    <td>Tempo di tromboplastina [ APTT - 00140 ]<span class="badge validated">Eseguita da validare</span></td>
-                                    <td class="status-cell">32.5</td>
-                                    <td>APTT</td>
+                                    <td>aPTT</td>
+                                    <td>Tempo Tromboplastina Parziale [ aPTT - 00131 ]<span class="badge accepted">Accettata</span></td>
+                                    <td></td>
+                                    <td>aPTT</td>
                                     <td>Citrato 3.2% ...</td>
-                                    <td>00140</td>
-                                    <td>APTT...</td>
+                                    <td>00131</td>
+                                    <td>Temp...</td>
+                                    <td>18/09</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="checkbox"></td>
+                                    <td>FIBR</td>
+                                    <td>Fibrinogeno [ FIBR - 00132 ]<span class="badge validated">Eseguita e validata</span></td>
+                                    <td>3.2</td>
+                                    <td>Fib</td>
+                                    <td>Citrato 3.2% ...</td>
+                                    <td>00132</td>
+                                    <td>Fibr...</td>
                                     <td>16/09</td>
                                 </tr>
                             </tbody>
@@ -1019,28 +1087,27 @@
     </div>
 
     <script>
-        function switchTab(tabName, event) {
+        function switchTab(tabId, event) {
+            event.preventDefault();
+            
             // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(el => {
-                el.classList.remove('active');
-            });
-
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
             // Remove active class from all tabs
-            document.querySelectorAll('.tab').forEach(el => {
-                el.classList.remove('active');
-            });
-
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
             // Show selected tab content
-            document.getElementById(tabName).classList.add('active');
-
+            document.getElementById(tabId).classList.add('active');
+            
             // Add active class to clicked tab
             event.target.classList.add('active');
         }
 
-        function toggleExpansion(headerElement) {
-            headerElement.classList.toggle('open');
-            const content = headerElement.nextElementSibling;
-            content.classList.toggle('open');
+        function toggleExpansion(element) {
+            element.classList.toggle('open');
+            element.nextElementSibling.classList.toggle('open');
         }
     </script>
 </body>
